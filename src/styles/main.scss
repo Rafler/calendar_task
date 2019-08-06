@@ -2,6 +2,25 @@
 @import "fonts";
 @import "typography";
 
-body {
-  background: $c-gray;
+.calendar {
+  margin-top: 50px;
+  display: grid;
+  grid-gap: 2px;
+  grid-template-columns: repeat(7, $b-size);
+  grid-template-rows: repeat(5, $b-size);
 }
+
+.calendar > div {
+  background-color: $c-gray;
+  @include center-position;
+  @include hover(transform, translateY(-20px));
+  @include hover (background-color, $c-hover);
+  @include frame;
+  @include font;
+}
+
+@include day-counter;
+
+@include first-day;
+
+@include amount-of-days;

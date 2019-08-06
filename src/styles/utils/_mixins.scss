@@ -1,6 +1,47 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: all 1s ease;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin center-position {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin frame {
+  border: 1px solid $frame-color;
+}
+
+@mixin font {
+  color: black;
+  font-family: Arial, sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+}
+
+@mixin day-counter {
+  @for $i from 1 through 31 {
+    .calendar div:nth-child(#{$i})::after {
+      content: "#{$i}";
+    }
+  }
+}
+
+@mixin first-day {
+  @for $n from 1 through length($days) {
+    .calendar-#{nth($days, $n)} div:first-child {
+      grid-column-start: #{$n};
+    }
+  }
+}
+
+@mixin amount-of-days {
+  @for $d from 28 through 31 {
+    .calendar-#{$d} div:nth-child(#{$d}) ~ div {
+      display: none;
+    }
   }
 }
