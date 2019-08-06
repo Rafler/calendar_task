@@ -7,7 +7,7 @@
   display: grid;
   grid-gap: 2px;
   grid-template-columns: repeat(7, $b-size);
-  grid-template-rows: repeat(5, $b-size);
+  grid-template-rows: repeat(6, $b-size);
 }
 
 .calendar > div {
